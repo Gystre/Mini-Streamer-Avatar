@@ -1,0 +1,11 @@
+﻿  main.cpp
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(8,12): warning C4101: 'windowEvent': unreferenced local variable
+main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z) referenced in function _WinMain@16
+main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ) referenced in function _WinMain@16
+main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QAE@III@Z) referenced in function _WinMain@16
+main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z) referenced in function _WinMain@16
+main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UAE@XZ) referenced in function _WinMain@16
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\SFML-2.5.1\lib\sfml-graphics-d.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\SFML-2.5.1\lib\sfml-window-d.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\SFML-2.5.1\lib\sfml-system-d.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\xaist\source\repos\LuveiaStreamerThing\Debug\LuveiaStreamerThing.exe : fatal error LNK1120: 5 unresolved externals
