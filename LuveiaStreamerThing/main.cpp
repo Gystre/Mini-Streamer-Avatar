@@ -1,6 +1,8 @@
 #include "header.hpp"
 #include "Config.h"
 #include "Input.h"
+#include "Osu.h"
+#include "ImageLoader.h"
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -19,13 +21,20 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     //do config
     config = std::make_unique<Config>("config.json");
     config->ReadConfig();
-
     std::cout << "read in the config" << std::endl;
 
     //do input
     input = std::make_unique<Input>();
-
     std::cout << "created input singleton" << std::endl;
+
+    //do image loader
+    imageLoader = std::make_unique<ImageLoader>();
+    std::cout << "created image loader" << std::endl;
+
+    //do osu
+    osu = std::make_unique<Osu>();
+    osu->Init();
+    std::cout << "created osu drawing style" << std::endl;
 
     //render loop
     bool isReload = false;
@@ -71,10 +80,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
         std::array<float, 4> color = config->decoration.Rgb;
         window.clear(sf::Color(color[0], color[1], color[2], color[3]));
-        //switch (mode) {
-        //case 1:
-        //    osu::draw();
-        //    break;
+        switch (mode) {
+        case 1:
+            osu->Draw(window);
+            break;
         //case 2:
         //    taiko::draw();
         //    break;
@@ -86,7 +95,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
         //    break;
         //case 5:
         //    custom::draw();
-        //}
+        }
 
         //show input panel
         if (isShowInputDebug) {

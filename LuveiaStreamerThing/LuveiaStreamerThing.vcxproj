@@ -166,15 +166,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Osu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
     <ClInclude Include="header.hpp" />
+    <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="nlohmann\json.hpp" />
+    <ClInclude Include="Osu.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="StreamerType.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LuveiaStreamerThing.rc" />

@@ -18,6 +18,15 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{a9edebd3-453c-4f08-86f5-a6f86c1fcd7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="img">
+      <UniqueIdentifier>{5308a9cb-23d4-49d5-943f-be1f412ace43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StreamerTypes">
+      <UniqueIdentifier>{800899b8-254d-446e-a8ae-daf6faac30f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img\osu">
+      <UniqueIdentifier>{31f51cee-6813-4fb8-a512-7518498152b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,6 +36,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Osu.cpp">
+      <Filter>StreamerTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,6 +59,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Osu.h">
+      <Filter>StreamerTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamerType.h">
+      <Filter>StreamerTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

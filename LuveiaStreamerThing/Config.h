@@ -25,21 +25,31 @@ public:
 	{
 		bool LeftHanded = false;
 		std::array<float, 4> Rgb = { 255, 255, 255, 255 };
-		std::array<float, 2> OffsetX = { 0, 11 };
-		std::array<float, 2> OffsetY = { 0, -65 };
-		std::array<float, 2> Scalar = { 1, 1 };
+		std::array<float, 2> OffsetMouse = { 0, 0 };
+		float MouseScalar = 1;
+		std::array<float, 2> OffsetPen = { 11, -65 };
+		float PenScalar = 1;
 	}decoration;
 
 	//config stuff for the pen type draw
-	struct Pen
+	struct Osu
 	{
 		bool Mouse = true;
-		std::array<float, 3> Paw = { 0, 0, 0 };
-		std::array<float, 3> PawEdge = { 0,0,0 };
+		bool ToggleSmoke = false;
+		std::array<float, 4> PawColor = { 255, 255, 255, 255 };
+		std::array<float, 4> PawEdgeColor = { 0,0,0, 255 };
 		int Key1 = 90;
 		int Key2 = 88;
-		//add more keys here
-	}pen;
+		int Smoke = 67;
+		int Wave = 86;
+	}osu;
+
+	struct MousePaw
+	{
+		std::string Comment = "coordinates start in the top left of the window";
+		std::array<float, 2> PawStartingPoint = { 211, 159 };
+		std::array<float, 2> PawEndingPoint = { 258, 228};
+	}mousePaw;
 
 private:
 	std::filesystem::path Path;

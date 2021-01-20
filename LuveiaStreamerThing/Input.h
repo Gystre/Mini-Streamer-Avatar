@@ -28,6 +28,11 @@ class Input
 public:
     Input();
     void drawDebugPanel(sf::RenderWindow& window);
+    std::pair<double, double> bezier(double ratio, std::vector<double>& points, int length);
+    std::pair<double, double> getXY();
+
+    bool isPressed(int key_code);
+    bool isPressedFallback(int key_code);
 private:
 	int horizontal, vertical;
 	int osu_x, osu_y, osu_h, osu_v;
@@ -45,12 +50,8 @@ private:
     int INPUT_KEY_TABLE[TOTAl_INPUT_TABLE_SIZE];
 
     sf::Keyboard::Key asciiToKey(int key_code);
-    bool isPressedFallback(int key_code);
-    bool isPressed(int key_code);
     bool isJoystickConnected();
     bool isJoystickPressed(int key_code);
-    std::pair<double, double> bezier(double ratio, std::vector<double>& points, int length);
-    std::pair<double, double> getXY();
 };
 
 inline std::unique_ptr<Input> input;

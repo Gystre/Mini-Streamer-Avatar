@@ -26,7 +26,7 @@ std::string Config::GetCurrentWorkingDirectory()
     return std::string(buffer).substr(0, pos);
 }
 
-//need to do here because value init in structs happen after constructor
+//need to do here because value init in structs haposu after constructor
 void Config::ReadConfig()
 {
     std::ifstream in{ Path };
@@ -67,15 +67,23 @@ void Config::Load(const char* name)
 
     config->decoration.LeftHanded = j["Decoration"]["Left Handed"];
     config->decoration.Rgb = j["Decoration"]["Rgb"];
-    config->decoration.OffsetX = j["Decoration"]["Offset X"];
-    config->decoration.OffsetY = j["Decoration"]["Offset Y"];
-    config->decoration.Scalar = j["Decoration"]["Scalar"];
+    config->decoration.OffsetMouse = j["Decoration"]["Offset Mouse"];
+    config->decoration.OffsetPen = j["Decoration"]["Offset Pen"];
+    config->decoration.MouseScalar = j["Decoration"]["Mouse Scalar"];
+    config->decoration.PenScalar = j["Decoration"]["Pen Scalar"];
 
-    config->pen.Mouse = j["Pen"]["Mouse"];
-    config->pen.Paw = j["Pen"]["Paw"];
-    config->pen.PawEdge = j["Pen"]["Paw Edge"];
-    config->pen.Key1 = j["Pen"]["Key 1"];
-    config->pen.Key2 = j["Pen"]["Key 2"];
+    config->osu.Mouse = j["Osu"]["Mouse"];
+    config->osu.ToggleSmoke = j["Osu"]["Toggle Smoke"];
+    config->osu.PawColor = j["Osu"]["Paw Color"];
+    config->osu.PawEdgeColor = j["Osu"]["Paw Edge Color"];
+    config->osu.Key1 = j["Osu"]["Key 1"];
+    config->osu.Key2 = j["Osu"]["Key 2"];
+    config->osu.Smoke = j["Osu"]["Smoke Key"];
+    config->osu.Wave = j["Osu"]["Wave Key"];
+
+    config->mousePaw.Comment = j["Mouse Paw"]["Comment"];
+    config->mousePaw.PawStartingPoint = j["Mouse Paw"]["Paw Starting Point"];
+    config->mousePaw.PawEndingPoint = j["Mouse Paw"]["Paw Ending Point"];
 }
 
 void Config::Save()
@@ -99,15 +107,25 @@ void Config::Save()
 
         j["Decoration"]["Left Handed"] = config->decoration.LeftHanded;
         j["Decoration"]["Rgb"] = config->decoration.Rgb;
-        j["Decoration"]["Offset X"] = config->decoration.OffsetX;
-        j["Decoration"]["Offset Y"] = config->decoration.OffsetY;
-        j["Decoration"]["Scalar"] = config->decoration.Scalar;
+        j["Decoration"]["Offset Mouse"] = config->decoration.OffsetMouse;
+        j["Decoration"]["Offset Pen"] = config->decoration.OffsetPen;
+        j["Decoration"]["Mouse Scalar"] = config->decoration.MouseScalar;
+        j["Decoration"]["Pen Scalar"] = config->decoration.PenScalar;
+        /*j["Decoration"]["Scalar"] = config->decoration.Scalar;*/
 
-        j["Pen"]["Mouse"] = config->pen.Mouse;
-        j["Pen"]["Paw"] = config->pen.Paw;
-        j["Pen"]["Paw Edge"] = config->pen.PawEdge;
-        j["Pen"]["Key 1"] = config->pen.Key1;
-        j["Pen"]["Key 2"] = config->pen.Key2;
+        j["Osu"]["Mouse"] = config->osu.Mouse;
+        j["Osu"]["Toggle Smoke"] = config->osu.ToggleSmoke;
+        j["Osu"]["Paw Color"] = config->osu.PawColor;
+        j["Osu"]["Paw Edge Color"] = config->osu.PawEdgeColor;
+        j["Osu"]["Key 1"] = config->osu.Key1;
+        j["Osu"]["Key 2"] = config->osu.Key2;
+        j["Osu"]["Smoke Key"] = config->osu.Smoke;
+        j["Osu"]["Wave Key"] = config->osu.Wave;
+
+        j["Mouse Paw"]["Comment"] = config->mousePaw.Comment;
+        j["Mouse Paw"]["Paw Starting Point"] = config->mousePaw.PawStartingPoint;
+        j["Mouse Paw"]["Paw Ending Point"] = config->mousePaw.PawEndingPoint;
+
 
         out << std::setw(2) << j;
     }

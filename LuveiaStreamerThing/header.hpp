@@ -9,6 +9,7 @@
 #include <array>
 #include <fstream>
 #include <sstream>
+#include <map>
 
 #define WINDOW_WIDTH 612
 #define WINDOW_HEIGHT 352
