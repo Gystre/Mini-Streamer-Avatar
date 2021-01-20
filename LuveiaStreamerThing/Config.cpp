@@ -13,7 +13,6 @@ Config::Config(const char* name)
     FileName = name;
 
     std::cout << "config path: " << Path << std::endl;
-
 }
 
 std::string Config::GetCurrentWorkingDirectory()
@@ -60,26 +59,30 @@ void Config::Load(const char* name)
     config->main.Mode = j["Main"]["Mode"];
 
     config->resolution.LetterBoxing = j["Resolution"]["Letter Boxing"];
-    config->resolution.Width = j["Resolution"]["Width"];
-    config->resolution.Height = j["Resolution"]["Height"];
+    config->resolution.OsuWidth = j["Resolution"]["Osu Width"];
+    config->resolution.OsuHeight = j["Resolution"]["Osu Height"];
     config->resolution.HorizontalPosition = j["Resolution"]["Horizontal Position"];
     config->resolution.VerticalPosition = j["Resolution"]["Vertical Position"];
 
     config->decoration.LeftHanded = j["Decoration"]["Left Handed"];
-    config->decoration.Rgb = j["Decoration"]["Rgb"];
-    config->decoration.OffsetMouse = j["Decoration"]["Offset Mouse"];
-    config->decoration.OffsetPen = j["Decoration"]["Offset Pen"];
-    config->decoration.MouseScalar = j["Decoration"]["Mouse Scalar"];
-    config->decoration.PenScalar = j["Decoration"]["Pen Scalar"];
+    config->decoration.BackgroundColor = j["Decoration"]["Background Color"];
 
-    config->osu.Mouse = j["Osu"]["Mouse"];
-    config->osu.ToggleSmoke = j["Osu"]["Toggle Smoke"];
-    config->osu.PawColor = j["Osu"]["Paw Color"];
-    config->osu.PawEdgeColor = j["Osu"]["Paw Edge Color"];
-    config->osu.Key1 = j["Osu"]["Key 1"];
-    config->osu.Key2 = j["Osu"]["Key 2"];
-    config->osu.Smoke = j["Osu"]["Smoke Key"];
-    config->osu.Wave = j["Osu"]["Wave Key"];
+    config->osu.Mouse = j["Modes"]["Osu"]["Mouse"];
+    config->osu.ToggleSmoke = j["Modes"]["Osu"]["Toggle Smoke"];
+    config->osu.PawColor = j["Modes"]["Osu"]["Paw Color"];
+    config->osu.PawEdgeColor = j["Modes"]["Osu"]["Paw Edge Color"];
+    config->osu.Key1 = j["Modes"]["Osu"]["Key 1"];
+    config->osu.Key2 = j["Modes"]["Osu"]["Key 2"];
+    config->osu.Smoke = j["Modes"]["Osu"]["Smoke Key"];
+    config->osu.Wave = j["Modes"]["Osu"]["Wave Key"];
+    config->osu.OffsetMouse = j["Modes"]["Osu"]["Offset Mouse"];
+    config->osu.OffsetPen = j["Modes"]["Osu"]["Offset Pen"];
+    config->osu.MouseScalar = j["Modes"]["Osu"]["Mouse Scalar"];
+    config->osu.PenScalar = j["Modes"]["Osu"]["Pen Scalar"];
+
+    config->drawing.ToggleSmoke = j["Modes"]["Drawing"]["Toggle Smoke"];
+    config->drawing.OffsetPen = j["Modes"]["Drawing"]["Pen Offset"];
+    config->drawing.ToggleSmoke = j["Modes"]["Drawing"]["Smoke Key"];
 
     config->mousePaw.Comment = j["Mouse Paw"]["Comment"];
     config->mousePaw.PawStartingPoint = j["Mouse Paw"]["Paw Starting Point"];
@@ -100,27 +103,31 @@ void Config::Save()
         j["Main"]["Mode"] = config->main.Mode;
 
         j["Resolution"]["Letter Boxing"] = config->resolution.LetterBoxing;
-        j["Resolution"]["Width"] = config->resolution.Width;
-        j["Resolution"]["Height"] = config->resolution.Height;
+        j["Resolution"]["Osu Width"] = config->resolution.OsuWidth;
+        j["Resolution"]["Osu Height"] = config->resolution.OsuHeight;
         j["Resolution"]["Horizontal Position"] = config->resolution.HorizontalPosition;
         j["Resolution"]["Vertical Position"] = config->resolution.VerticalPosition;
 
         j["Decoration"]["Left Handed"] = config->decoration.LeftHanded;
-        j["Decoration"]["Rgb"] = config->decoration.Rgb;
-        j["Decoration"]["Offset Mouse"] = config->decoration.OffsetMouse;
-        j["Decoration"]["Offset Pen"] = config->decoration.OffsetPen;
-        j["Decoration"]["Mouse Scalar"] = config->decoration.MouseScalar;
-        j["Decoration"]["Pen Scalar"] = config->decoration.PenScalar;
-        /*j["Decoration"]["Scalar"] = config->decoration.Scalar;*/
+        j["Decoration"]["Background Color"] = config->decoration.BackgroundColor;
 
-        j["Osu"]["Mouse"] = config->osu.Mouse;
-        j["Osu"]["Toggle Smoke"] = config->osu.ToggleSmoke;
-        j["Osu"]["Paw Color"] = config->osu.PawColor;
-        j["Osu"]["Paw Edge Color"] = config->osu.PawEdgeColor;
-        j["Osu"]["Key 1"] = config->osu.Key1;
-        j["Osu"]["Key 2"] = config->osu.Key2;
-        j["Osu"]["Smoke Key"] = config->osu.Smoke;
-        j["Osu"]["Wave Key"] = config->osu.Wave;
+        j["Modes"]["Osu"]["Mouse"] = config->osu.Mouse;
+        j["Modes"]["Osu"]["Toggle Smoke"] = config->osu.ToggleSmoke;
+        j["Modes"]["Osu"]["Paw Color"] = config->osu.PawColor;
+        j["Modes"]["Osu"]["Paw Edge Color"] = config->osu.PawEdgeColor;
+        j["Modes"]["Osu"]["Key 1"] = config->osu.Key1;
+        j["Modes"]["Osu"]["Key 2"] = config->osu.Key2;
+        j["Modes"]["Osu"]["Smoke Key"] = config->osu.Smoke;
+        j["Modes"]["Osu"]["Wave Key"] = config->osu.Wave;
+        j["Modes"]["Osu"]["Offset Mouse"] = config->osu.OffsetMouse;
+        j["Modes"]["Osu"]["Offset Pen"] = config->osu.OffsetPen;
+        j["Modes"]["Osu"]["Mouse Scalar"] = config->osu.MouseScalar;
+        j["Modes"]["Osu"]["Pen Scalar"] = config->osu.PenScalar;
+        
+
+        j["Modes"]["Drawing"]["Toggle Smoke"] = config->drawing.ToggleSmoke;
+        j["Modes"]["Drawing"]["Pen Offset"] = config->drawing.OffsetPen;
+        j["Modes"]["Drawing"]["Smoke Key"] = config->drawing.ToggleSmoke;
 
         j["Mouse Paw"]["Comment"] = config->mousePaw.Comment;
         j["Mouse Paw"]["Paw Starting Point"] = config->mousePaw.PawStartingPoint;

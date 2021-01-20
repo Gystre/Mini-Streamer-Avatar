@@ -64,8 +64,8 @@ Input::Input()
 
     //read config values
     isLetterbox = config->resolution.LetterBoxing;
-    osu_x = config->resolution.Width;
-    osu_y = config->resolution.Height;
+    osu_x = config->resolution.OsuWidth;
+    osu_y = config->resolution.OsuHeight;
     osu_h = config->resolution.HorizontalPosition;
     osu_v = config->resolution.VerticalPosition;
     isLeftHanded = config->decoration.LeftHanded;
@@ -131,7 +131,8 @@ bool Input::isPressed(int key_code)
     }
 }
 
-bool Input::isJoystickConnected() {
+bool Input::isJoystickConnected() 
+{
     return sf::Joystick::isConnected(0);
 }
 

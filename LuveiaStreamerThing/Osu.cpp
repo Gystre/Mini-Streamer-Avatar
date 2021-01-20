@@ -32,15 +32,15 @@ void Osu::Init()
 	//value corresponds to the pen
 	if (isMouse)
 	{
-		offset_x = config->decoration.OffsetMouse[0];
-		offset_y = config->decoration.OffsetMouse[1];
-		scale = config->decoration.MouseScalar;
+		offset_x = config->osu.OffsetMouse[0];
+		offset_y = config->osu.OffsetMouse[1];
+		scale = config->osu.MouseScalar;
 	}
 	else
 	{
-		offset_x = config->decoration.OffsetPen[0];
-		offset_y = config->decoration.OffsetPen[1];
-		scale = config->decoration.PenScalar;
+		offset_x = config->osu.OffsetPen[0];
+		offset_y = config->osu.OffsetPen[1];
+		scale = config->osu.PenScalar;
 	}
 
 	//importing sprites

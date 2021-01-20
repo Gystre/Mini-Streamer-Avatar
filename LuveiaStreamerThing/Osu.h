@@ -14,8 +14,8 @@ public:
 
 private:
 	int offset_x, offset_y;
-	int paw_r, paw_g, paw_b, paw_a;
-	int paw_edge_r, paw_edge_g, paw_edge_b, paw_edge_a;
+	int paw_r, paw_g, paw_b, paw_a; //paw color
+	int paw_edge_r, paw_edge_g, paw_edge_b, paw_edge_a; //paw outline color
 	double scale;
 	bool isMouse, isLeftHanded, isEnableToggleSmoke;
 	sf::Sprite bg, up, left, right, device, smoke, wave;

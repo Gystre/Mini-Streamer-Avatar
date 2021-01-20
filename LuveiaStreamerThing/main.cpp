@@ -1,8 +1,9 @@
 #include "header.hpp"
 #include "Config.h"
 #include "Input.h"
-#include "Osu.h"
 #include "ImageLoader.h"
+#include "Osu.h"
+#include "Drawing.h"
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -36,15 +37,23 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     osu->Init();
     std::cout << "created osu drawing style" << std::endl;
 
+    //do drawing
+    drawing = std::make_unique<Drawing>();
+    drawing->Init();
+    std::cout << "created drawing drawing style" << std::endl;
+
     //render loop
     bool isReload = false;
     bool isShowInputDebug = false;
 
     while (window.isOpen()) 
     {
+        input->aKeyWasPressed = false;
+
         sf::Event windowEvent;
         while (window.pollEvent(windowEvent))
         {
+
             //poll events
             switch (windowEvent.type)
             {
@@ -53,11 +62,15 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
                 break;
 
             case sf::Event::KeyPressed:
+                input->aKeyWasPressed = true;
                 // get reload config prompt
                 if (windowEvent.key.code == sf::Keyboard::R && windowEvent.key.control) {
                     if (!isReload) {
-                        //reload config
+                        //reload the stuff
                         config->ReadConfig();
+                        osu->Init();
+                        drawing->Init();
+                        std::cout << "reloaded config" << std::endl;
                     }
                     isReload = true;
                     break;
@@ -78,10 +91,13 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
         //and clear to config color
         int mode = config->main.Mode;
 
-        std::array<float, 4> color = config->decoration.Rgb;
+        std::array<float, 4> color = config->decoration.BackgroundColor;
         window.clear(sf::Color(color[0], color[1], color[2], color[3]));
         switch (mode) {
         case 1:
+            drawing->Draw(window);
+            break;
+        case 2:
             osu->Draw(window);
             break;
         //case 2:

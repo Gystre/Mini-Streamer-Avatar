@@ -15,8 +15,8 @@ public:
 	struct Resolution
 	{
 		bool LetterBoxing = true;
-		int Width = 1920;
-		int Height = 1080;
+		int OsuWidth = 1920;
+		int OsuHeight = 1080;
 		float HorizontalPosition = 0;
 		float VerticalPosition = 0;
 	}resolution;
@@ -24,11 +24,8 @@ public:
 	struct Decoration
 	{
 		bool LeftHanded = false;
-		std::array<float, 4> Rgb = { 255, 255, 255, 255 };
-		std::array<float, 2> OffsetMouse = { 0, 0 };
-		float MouseScalar = 1;
-		std::array<float, 2> OffsetPen = { 11, -65 };
-		float PenScalar = 1;
+		std::array<float, 4> BackgroundColor = { 255, 255, 255, 255 };
+
 	}decoration;
 
 	//config stuff for the pen type draw
@@ -42,7 +39,19 @@ public:
 		int Key2 = 88;
 		int Smoke = 67;
 		int Wave = 86;
+
+		std::array<float, 2> OffsetMouse = { 0, 0 };
+		float MouseScalar = 1;
+		std::array<float, 2> OffsetPen = { 11, -65 };
+		float PenScalar = 1;
 	}osu;
+
+	struct Drawing
+	{
+		std::array<float, 2> OffsetPen = { 8, 9 };
+		int Smoke = 67;
+		bool ToggleSmoke = false;
+	}drawing;
 
 	struct MousePaw
 	{
@@ -50,6 +59,8 @@ public:
 		std::array<float, 2> PawStartingPoint = { 211, 159 };
 		std::array<float, 2> PawEndingPoint = { 258, 228};
 	}mousePaw;
+
+
 
 private:
 	std::filesystem::path Path;
