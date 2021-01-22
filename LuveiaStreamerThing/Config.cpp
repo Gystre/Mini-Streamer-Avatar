@@ -79,14 +79,17 @@ void Config::Load(const char* name)
     config->osu.OffsetPen = j["Modes"]["Osu"]["Offset Pen"];
     config->osu.MouseScalar = j["Modes"]["Osu"]["Mouse Scalar"];
     config->osu.PenScalar = j["Modes"]["Osu"]["Pen Scalar"];
+    config->osu.Comment = j["Modes"]["Osu"]["Comment"];
+    config->osu.PawStartingPoint = j["Modes"]["Osu"]["Paw Starting Point"];
+    config->osu.PawEndingPoint= j["Modes"]["Osu"]["Paw Ending Point"];
+
 
     config->drawing.ToggleSmoke = j["Modes"]["Drawing"]["Toggle Smoke"];
     config->drawing.OffsetPen = j["Modes"]["Drawing"]["Pen Offset"];
     config->drawing.ToggleSmoke = j["Modes"]["Drawing"]["Smoke Key"];
+    config->drawing.LeftHandPosition = j["Modes"]["Drawing"]["Left Hand Position"];
 
-    config->mousePaw.Comment = j["Mouse Paw"]["Comment"];
-    config->mousePaw.PawStartingPoint = j["Mouse Paw"]["Paw Starting Point"];
-    config->mousePaw.PawEndingPoint = j["Mouse Paw"]["Paw Ending Point"];
+    config->mouth.MinThreshold = j["Mouth"]["Min Threshold"];
 }
 
 void Config::Save()
@@ -123,17 +126,17 @@ void Config::Save()
         j["Modes"]["Osu"]["Offset Pen"] = config->osu.OffsetPen;
         j["Modes"]["Osu"]["Mouse Scalar"] = config->osu.MouseScalar;
         j["Modes"]["Osu"]["Pen Scalar"] = config->osu.PenScalar;
+        j["Modes"]["Osu"]["Comment"] = config->osu.Comment;
+        j["Modes"]["Osu"]["Paw Starting Point"] = config->osu.PawStartingPoint;
+        j["Modes"]["Osu"]["Paw Ending Point"] = config->osu.PawEndingPoint;
         
 
         j["Modes"]["Drawing"]["Toggle Smoke"] = config->drawing.ToggleSmoke;
         j["Modes"]["Drawing"]["Pen Offset"] = config->drawing.OffsetPen;
         j["Modes"]["Drawing"]["Smoke Key"] = config->drawing.ToggleSmoke;
+        j["Modes"]["Drawing"]["Left Hand Position"] = config->drawing.LeftHandPosition;
 
-        j["Mouse Paw"]["Comment"] = config->mousePaw.Comment;
-        j["Mouse Paw"]["Paw Starting Point"] = config->mousePaw.PawStartingPoint;
-        j["Mouse Paw"]["Paw Ending Point"] = config->mousePaw.PawEndingPoint;
-
-
+        j["Mouth"]["Min Threshold"] = config->mouth.MinThreshold;
         out << std::setw(2) << j;
     }
 }

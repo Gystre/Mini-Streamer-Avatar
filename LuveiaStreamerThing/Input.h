@@ -33,8 +33,6 @@ public:
 
     bool isPressed(int key_code);
     bool isPressedFallback(int key_code);
-
-    bool aKeyWasPressed = false; //set in the poll event for KeyPressed
 private:
 	int horizontal, vertical;
 	int osu_x, osu_y, osu_h, osu_v;

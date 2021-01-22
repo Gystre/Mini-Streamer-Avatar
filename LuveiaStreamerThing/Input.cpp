@@ -78,7 +78,8 @@ Input::Input()
     vertical = desktop.bottom;
 
     // loading font
-    if (!debugFont.loadFromFile("font/RobotoMono-Bold.ttf")) {
+    if (!debugFont.loadFromFile("font/RobotoMono-Bold.ttf")) 
+    {
         MessageBoxA(NULL, "Cannot find the font : RobotoMono-Bold.ttf", "Error loading font", MB_ICONERROR | MB_OK);
     }
 
@@ -248,7 +249,6 @@ std::pair<double, double> Input::bezier(double ratio, std::vector<double>& point
 
 std::pair<double, double> Input::getXY()
 {
-
     // getting device resolution
     double letter_x, letter_y, s_height, s_width;
 

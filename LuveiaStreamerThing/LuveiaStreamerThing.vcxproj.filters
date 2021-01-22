@@ -21,6 +21,9 @@
     <Filter Include="StreamerTypes">
       <UniqueIdentifier>{800899b8-254d-446e-a8ae-daf6faac30f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ico">
+      <UniqueIdentifier>{8211fea7-2a49-4205-9bbb-4d7aaed1a7ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,6 +43,12 @@
     </ClCompile>
     <ClCompile Include="Drawing.cpp">
       <Filter>StreamerTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaybackRecorder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +79,12 @@
     <ClInclude Include="Drawing.h">
       <Filter>StreamerTypes</Filter>
     </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaybackRecorder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="font\RobotoMono-Bold.ttf">
@@ -80,5 +95,10 @@
     <ResourceCompile Include="LuveiaStreamerThing.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ico\icon64x64.ico">
+      <Filter>ico</Filter>
+    </Image>
   </ItemGroup>
 </Project>

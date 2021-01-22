@@ -44,23 +44,26 @@ public:
 		float MouseScalar = 1;
 		std::array<float, 2> OffsetPen = { 11, -65 };
 		float PenScalar = 1;
+
+		std::string Comment = "coordinates start in the top left of the window";
+		std::array<float, 2> PawStartingPoint = { 211, 159 };
+		std::array<float, 2> PawEndingPoint = { 258, 228 };
 	}osu;
 
 	struct Drawing
 	{
-		std::array<float, 2> OffsetPen = { 8, 9 };
+		std::array<float, 2> OffsetPen = { 12, 0 };
 		int Smoke = 67;
 		bool ToggleSmoke = false;
+
+		std::string Comment = "coordinates start in the top left of the window";
+		std::array<float, 2> LeftHandPosition = { 40, 3 };
 	}drawing;
 
-	struct MousePaw
+	struct Mouth
 	{
-		std::string Comment = "coordinates start in the top left of the window";
-		std::array<float, 2> PawStartingPoint = { 211, 159 };
-		std::array<float, 2> PawEndingPoint = { 258, 228};
-	}mousePaw;
-
-
+		int MinThreshold = 40;
+	}mouth;
 
 private:
 	std::filesystem::path Path;

@@ -3,6 +3,7 @@
 #include "Config.h"
 #include "ImageLoader.h"
 #include "Input.h"
+#include "Audio.h"
 
 Drawing::Drawing() {}
 
@@ -28,8 +29,8 @@ void Drawing::Draw(sf::RenderWindow& window)
 	window.draw(bg);
 
     // initializing pss and pss2 (kuvster's magic)
-    int x_paw_start = config->mousePaw.PawStartingPoint[0];
-    int y_paw_start = config->mousePaw.PawStartingPoint[1];
+    int x_paw_start = config->osu.PawStartingPoint[0];
+    int y_paw_start = config->osu.PawStartingPoint[1];
     auto [x, y] = input->getXY();
     int oof = 6;
     std::vector<double> pss = { (float)x_paw_start, (float)y_paw_start };
@@ -49,8 +50,8 @@ void Drawing::Draw(sf::RenderWindow& window)
     double le = hypot(a, b);
     a = x + a / le * 60;
     b = y + b / le * 60;
-    int x_paw_end = config->mousePaw.PawEndingPoint[0];
-    int y_paw_end = config->mousePaw.PawEndingPoint[1];
+    int x_paw_end = config->osu.PawEndingPoint[0];
+    int y_paw_end = config->osu.PawEndingPoint[1];
     dist = hypot(x_paw_end - a, y_paw_end - b);
     double centreright0 = x_paw_end - 0.6 * dist / 2;
     double centreright1 = y_paw_end + 0.8 * dist / 2;
@@ -103,14 +104,36 @@ void Drawing::Draw(sf::RenderWindow& window)
     window.draw(mouse);
 
     //any key was pressed
-    //bool leftKey = input->isPressed(90); //Z
-    if (input->aKeyWasPressed)
+    bool anythingPressed = false;
+
+    for (int i = sf::Keyboard::Key::Unknown; i != sf::Keyboard::Key::KeyCount; i++)
     {
+        if (input->isPressed(i))
+        {
+            anythingPressed = true;
+            break;
+        }
+    }
+
+    if (anythingPressed)
+    {
+        left.setPosition(config->drawing.LeftHandPosition[0], config->drawing.LeftHandPosition[1]);
         window.draw(left);
     }
     else
     {
+        up.setPosition(config->drawing.LeftHandPosition[0], config->drawing.LeftHandPosition[1]);
         window.draw(up);
+    }
+
+    //talking detected
+    if (audio->isTalking)
+    {
+        sf::CircleShape circle;
+        circle.setRadius(10);
+        circle.setFillColor(sf::Color::Black);
+        circle.setPosition(330, 130);
+        window.draw(circle);
     }
 
     // draw smoke
@@ -130,6 +153,7 @@ void Drawing::Draw(sf::RenderWindow& window)
     }
 
     if (drawSmoke) {
+        smoke.setPosition(60, -18);
         window.draw(smoke);
     }
 }

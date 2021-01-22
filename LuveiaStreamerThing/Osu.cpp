@@ -65,8 +65,8 @@ void Osu::Draw(sf::RenderWindow& window)
 	window.draw(bg);
 
     // initializing pss and pss2 (kuvster's magic)
-    int x_paw_start = config->mousePaw.PawStartingPoint[0];
-    int y_paw_start = config->mousePaw.PawStartingPoint[1];
+    int x_paw_start = config->osu.PawStartingPoint[0];
+    int y_paw_start = config->osu.PawStartingPoint[1];
     auto [x, y] = input->getXY();
     int oof = 6;
     std::vector<double> pss = { (float)x_paw_start, (float)y_paw_start };
@@ -86,8 +86,8 @@ void Osu::Draw(sf::RenderWindow& window)
     double le = hypot(a, b);
     a = x + a / le * 60;
     b = y + b / le * 60;
-    int x_paw_end = config->mousePaw.PawEndingPoint[0];
-    int y_paw_end = config->mousePaw.PawEndingPoint[1];
+    int x_paw_end = config->osu.PawEndingPoint[0];
+    int y_paw_end = config->osu.PawEndingPoint[1];
     dist = hypot(x_paw_end - a, y_paw_end - b);
     double centreright0 = x_paw_end - 0.6 * dist / 2;
     double centreright1 = y_paw_end + 0.8 * dist / 2;

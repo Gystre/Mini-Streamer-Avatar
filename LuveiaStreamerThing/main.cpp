@@ -4,6 +4,7 @@
 #include "ImageLoader.h"
 #include "Osu.h"
 #include "Drawing.h"
+#include "Audio.h"
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -13,7 +14,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
     SetConsoleTitleA("KYLE TOO COOL YEAHHHH");
 #endif
-
     sf::RenderWindow window;
 
     window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "KYLE GODLY HAHAHAHAHAAH", sf::Style::Titlebar | sf::Style::Close);
@@ -27,6 +27,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     //do input
     input = std::make_unique<Input>();
     std::cout << "created input singleton" << std::endl;
+
+    //do audio
+    audio = std::make_unique<Audio>();
+    audio->start(); //start recording
 
     //do image loader
     imageLoader = std::make_unique<ImageLoader>();
@@ -48,8 +52,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
     while (window.isOpen()) 
     {
-        input->aKeyWasPressed = false;
-
         sf::Event windowEvent;
         while (window.pollEvent(windowEvent))
         {
@@ -62,7 +64,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
                 break;
 
             case sf::Event::KeyPressed:
-                input->aKeyWasPressed = true;
                 // get reload config prompt
                 if (windowEvent.key.code == sf::Keyboard::R && windowEvent.key.control) {
                     if (!isReload) {
