@@ -3,7 +3,7 @@
 class Audio : public sf::SoundRecorder
 {
 public:
-	Audio();
+	void Init();
 	~Audio();
 
 	//public value that is true whenever mic activity is detected

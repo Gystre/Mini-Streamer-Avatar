@@ -7,6 +7,7 @@ public:
 	void ReadConfig();
 	std::string GetCurrentWorkingDirectory();
 
+	//anything in here is unscoped in the json file
 	struct Main 
 	{
 		int Mode = 1;
@@ -62,7 +63,7 @@ public:
 
 	struct Mouth
 	{
-		int MinThreshold = 40;
+		int MinThreshold = 300;
 	}mouth;
 
 private:

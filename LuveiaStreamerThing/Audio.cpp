@@ -2,11 +2,24 @@
 #include "Audio.h"
 #include "Config.h"
 
-Audio::Audio()
+//seperate constructor so that values can be read back in after reloading config
+void Audio::Init()
 {
+    //make sure recording is even available on the system
+    if (!sf::SoundBufferRecorder::isAvailable())
+    {
+        MessageBoxA(NULL, "Sound buffer isn't available which means no audio will be recorded :P", "Sound buffer recorder not availabe xd roflmao", MB_OK | MB_ICONERROR);
+        return;
+    }
+
+    audio->stop();
+
     isTalking = false;
     minThreshold = config->mouth.MinThreshold;
     negMinThreshold = minThreshold * -1;
+
+    //get the device and start recording
+    audio->start();
 }
 
 Audio::~Audio()
@@ -16,12 +29,6 @@ Audio::~Audio()
 
 bool Audio::onStart()
 {
-    if (!sf::SoundBufferRecorder::isAvailable())
-    {
-        MessageBoxA(NULL, "Sound buffer isn't available which means no audio will be recorded :P", "Sound buffer recorder not availabe xd roflmao", MB_OK | MB_ICONERROR);
-        return false;
-    }
-
     //// get the available sound input device names
     //std::vector<std::string> availableDevices = sf::SoundRecorder::getAvailableDevices();
 

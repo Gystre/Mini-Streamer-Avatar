@@ -346,22 +346,22 @@ C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\Osu.cpp(210,
               _Ty=double
           ]
   main.cpp
-C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(96,69): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(98,69): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
           with
           [
               _Ty=float
           ]
-C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(96,59): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(98,59): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
           with
           [
               _Ty=float
           ]
-C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(96,49): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(98,49): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
           with
           [
               _Ty=float
           ]
-C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(96,39): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
+C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\main.cpp(98,39): warning C4244: 'argument': conversion from '_Ty' to 'sf::Uint8', possible loss of data
           with
           [
               _Ty=float

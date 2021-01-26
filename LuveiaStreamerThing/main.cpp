@@ -22,29 +22,30 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     //do config
     config = std::make_unique<Config>("config.json");
     config->ReadConfig();
-    std::cout << "read in the config" << std::endl;
+    std::cout << "[Main] read in the config" << std::endl;
 
     //do input
     input = std::make_unique<Input>();
-    std::cout << "created input singleton" << std::endl;
+    std::cout << "[Main] created input singleton" << std::endl;
 
     //do audio
     audio = std::make_unique<Audio>();
-    audio->start(); //start recording
+    audio->Init();
+    std::cout << "[Main] created audio listener" << std::endl;
 
     //do image loader
     imageLoader = std::make_unique<ImageLoader>();
-    std::cout << "created image loader" << std::endl;
+    std::cout << "[Main] created image loader" << std::endl;
 
     //do osu
     osu = std::make_unique<Osu>();
     osu->Init();
-    std::cout << "created osu drawing style" << std::endl;
+    std::cout << "[Main] created osu drawing style" << std::endl;
 
     //do drawing
     drawing = std::make_unique<Drawing>();
     drawing->Init();
-    std::cout << "created drawing drawing style" << std::endl;
+    std::cout << "[Main] created drawing drawing style" << std::endl;
 
     //render loop
     bool isReload = false;
@@ -71,7 +72,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
                         config->ReadConfig();
                         osu->Init();
                         drawing->Init();
-                        std::cout << "reloaded config" << std::endl;
+                        audio->Init();
+                        std::cout << "[Main] reloaded config" << std::endl;
                     }
                     isReload = true;
                     break;

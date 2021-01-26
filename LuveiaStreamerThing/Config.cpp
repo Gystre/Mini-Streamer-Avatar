@@ -12,7 +12,7 @@ Config::Config(const char* name)
 
     FileName = name;
 
-    std::cout << "config path: " << Path << std::endl;
+    std::cout << "[Config] config path: " << Path << std::endl;
 }
 
 std::string Config::GetCurrentWorkingDirectory()
@@ -56,7 +56,7 @@ void Config::Load(const char* name)
     }
 
     //read in the stuff
-    config->main.Mode = j["Main"]["Mode"];
+    config->main.Mode = j["Mode"];
 
     config->resolution.LetterBoxing = j["Resolution"]["Letter Boxing"];
     config->resolution.OsuWidth = j["Resolution"]["Osu Width"];
@@ -86,7 +86,7 @@ void Config::Load(const char* name)
 
     config->drawing.ToggleSmoke = j["Modes"]["Drawing"]["Toggle Smoke"];
     config->drawing.OffsetPen = j["Modes"]["Drawing"]["Pen Offset"];
-    config->drawing.ToggleSmoke = j["Modes"]["Drawing"]["Smoke Key"];
+    config->drawing.Smoke = j["Modes"]["Drawing"]["Smoke Key"];
     config->drawing.LeftHandPosition = j["Modes"]["Drawing"]["Left Hand Position"];
 
     config->mouth.MinThreshold = j["Mouth"]["Min Threshold"];
@@ -103,7 +103,7 @@ void Config::Save()
         json j;
 
         //save the stuff
-        j["Main"]["Mode"] = config->main.Mode;
+        j["Mode"] = config->main.Mode;
 
         j["Resolution"]["Letter Boxing"] = config->resolution.LetterBoxing;
         j["Resolution"]["Osu Width"] = config->resolution.OsuWidth;
@@ -133,7 +133,7 @@ void Config::Save()
 
         j["Modes"]["Drawing"]["Toggle Smoke"] = config->drawing.ToggleSmoke;
         j["Modes"]["Drawing"]["Pen Offset"] = config->drawing.OffsetPen;
-        j["Modes"]["Drawing"]["Smoke Key"] = config->drawing.ToggleSmoke;
+        j["Modes"]["Drawing"]["Smoke Key"] = config->drawing.Smoke;
         j["Modes"]["Drawing"]["Left Hand Position"] = config->drawing.LeftHandPosition;
 
         j["Mouth"]["Min Threshold"] = config->mouth.MinThreshold;
