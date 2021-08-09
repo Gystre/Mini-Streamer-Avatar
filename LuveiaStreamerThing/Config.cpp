@@ -57,15 +57,7 @@ void Config::Load(const char* name)
 
     //read in the stuff
     config->main.Mode = j["Mode"];
-
-    config->resolution.LetterBoxing = j["Resolution"]["Letter Boxing"];
-    config->resolution.OsuWidth = j["Resolution"]["Osu Width"];
-    config->resolution.OsuHeight = j["Resolution"]["Osu Height"];
-    config->resolution.HorizontalPosition = j["Resolution"]["Horizontal Position"];
-    config->resolution.VerticalPosition = j["Resolution"]["Vertical Position"];
-
-    config->decoration.LeftHanded = j["Decoration"]["Left Handed"];
-    config->decoration.BackgroundColor = j["Decoration"]["Background Color"];
+    config->main.BackgroundColor = j["Background Color"];
 
     config->osu.Mouse = j["Modes"]["Osu"]["Mouse"];
     config->osu.ToggleSmoke = j["Modes"]["Osu"]["Toggle Smoke"];
@@ -82,7 +74,13 @@ void Config::Load(const char* name)
     config->osu.Comment = j["Modes"]["Osu"]["Comment"];
     config->osu.PawStartingPoint = j["Modes"]["Osu"]["Paw Starting Point"];
     config->osu.PawEndingPoint= j["Modes"]["Osu"]["Paw Ending Point"];
-
+    //resolution stuff
+    config->osu.LetterBoxing = j["Modes"]["Osu"]["Letter Boxing"];
+    config->osu.OsuWidth = j["Modes"]["Osu"]["Osu Width"];
+    config->osu.OsuHeight = j["Modes"]["Osu"]["Osu Height"];
+    config->osu.HorizontalPosition = j["Modes"]["Osu"]["Horizontal Position"];
+    config->osu.VerticalPosition = j["Modes"]["Osu"]["Vertical Position"];
+    config->osu.LeftHanded = j["Modes"]["Osu"]["Left Handed"];
 
     config->drawing.ToggleSmoke = j["Modes"]["Drawing"]["Toggle Smoke"];
     config->drawing.OffsetPen = j["Modes"]["Drawing"]["Pen Offset"];
@@ -104,15 +102,7 @@ void Config::Save()
 
         //save the stuff
         j["Mode"] = config->main.Mode;
-
-        j["Resolution"]["Letter Boxing"] = config->resolution.LetterBoxing;
-        j["Resolution"]["Osu Width"] = config->resolution.OsuWidth;
-        j["Resolution"]["Osu Height"] = config->resolution.OsuHeight;
-        j["Resolution"]["Horizontal Position"] = config->resolution.HorizontalPosition;
-        j["Resolution"]["Vertical Position"] = config->resolution.VerticalPosition;
-
-        j["Decoration"]["Left Handed"] = config->decoration.LeftHanded;
-        j["Decoration"]["Background Color"] = config->decoration.BackgroundColor;
+        j["Background Color"] = config->main.BackgroundColor;
 
         j["Modes"]["Osu"]["Mouse"] = config->osu.Mouse;
         j["Modes"]["Osu"]["Toggle Smoke"] = config->osu.ToggleSmoke;
@@ -129,7 +119,13 @@ void Config::Save()
         j["Modes"]["Osu"]["Comment"] = config->osu.Comment;
         j["Modes"]["Osu"]["Paw Starting Point"] = config->osu.PawStartingPoint;
         j["Modes"]["Osu"]["Paw Ending Point"] = config->osu.PawEndingPoint;
-        
+        //resolution stuff
+        j["Modes"]["Osu"]["Letter Boxing"] = config->osu.LetterBoxing;
+        j["Modes"]["Osu"]["Osu Width"] = config->osu.OsuWidth;
+        j["Modes"]["Osu"]["Osu Height"] = config->osu.OsuHeight;
+        j["Modes"]["Osu"]["Horizontal Position"] = config->osu.HorizontalPosition;
+        j["Modes"]["Osu"]["Vertical Position"] = config->osu.VerticalPosition;
+        j["Modes"]["Osu"]["Left Handed"] = config->osu.LeftHanded;
 
         j["Modes"]["Drawing"]["Toggle Smoke"] = config->drawing.ToggleSmoke;
         j["Modes"]["Drawing"]["Pen Offset"] = config->drawing.OffsetPen;

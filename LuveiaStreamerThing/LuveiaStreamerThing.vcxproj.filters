@@ -50,6 +50,9 @@
     <ClCompile Include="Audio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KevinMode.cpp">
+      <Filter>StreamerTypes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.hpp">
@@ -84,6 +87,9 @@
     </ClInclude>
     <ClInclude Include="PlaybackRecorder.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KevinMode.h">
+      <Filter>StreamerTypes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

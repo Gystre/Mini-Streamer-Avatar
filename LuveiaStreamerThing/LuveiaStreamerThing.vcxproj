@@ -170,6 +170,7 @@
     <ClCompile Include="Drawing.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="KevinMode.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Osu.cpp" />
     <ClCompile Include="PlaybackRecorder.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="header.hpp" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="KevinMode.h" />
     <ClInclude Include="nlohmann\json.hpp" />
     <ClInclude Include="Osu.h" />
     <ClInclude Include="PlaybackRecorder.h" />

@@ -2,12 +2,12 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\xaist\source\repos\LuveiaStreamerThing\x64\Debug\LuveiaStreamerThing.exe</FullPath>
+      <FullPath>C:\Users\xaist\Documents\GitHub\Mini-Streamer-Avatar\x64\Debug\LuveiaStreamerThing.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\xaist\source\repos\LuveiaStreamerThing\LuveiaStreamerThing\font\RobotoMono-Bold.ttf</FullPath>
+      <FullPath>C:\Users\xaist\Documents\GitHub\Mini-Streamer-Avatar\LuveiaStreamerThing\font\RobotoMono-Bold.ttf</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

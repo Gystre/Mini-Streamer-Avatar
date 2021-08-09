@@ -11,23 +11,8 @@ public:
 	struct Main 
 	{
 		int Mode = 1;
-	}main;
-
-	struct Resolution
-	{
-		bool LetterBoxing = true;
-		int OsuWidth = 1920;
-		int OsuHeight = 1080;
-		float HorizontalPosition = 0;
-		float VerticalPosition = 0;
-	}resolution;
-
-	struct Decoration
-	{
-		bool LeftHanded = false;
 		std::array<float, 4> BackgroundColor = { 255, 255, 255, 255 };
-
-	}decoration;
+	}main;
 
 	//config stuff for the pen type draw
 	struct Osu
@@ -49,6 +34,15 @@ public:
 		std::string Comment = "coordinates start in the top left of the window";
 		std::array<float, 2> PawStartingPoint = { 211, 159 };
 		std::array<float, 2> PawEndingPoint = { 258, 228 };
+
+		//resolution related stuff
+		bool LetterBoxing = true;
+		int OsuWidth = 1920;
+		int OsuHeight = 1080;
+		float HorizontalPosition = 0;
+		float VerticalPosition = 0;
+
+		bool LeftHanded = false;
 	}osu;
 
 	struct Drawing

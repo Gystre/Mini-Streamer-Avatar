@@ -4,6 +4,7 @@
 #include "ImageLoader.h"
 #include "Osu.h"
 #include "Drawing.h"
+#include "KevinMode.h"
 #include "Audio.h"
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -46,6 +47,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     drawing = std::make_unique<Drawing>();
     drawing->Init();
     std::cout << "[Main] created drawing drawing style" << std::endl;
+
+    //do kevinMode
+    kevinMode = std::make_unique<KevinMode>();
+    kevinMode->Init();
+    std::cout << "[Main] created kevin mode drawing style" << std::endl;
+
 
     //render loop
     bool isReload = false;
@@ -94,26 +101,18 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
         //and clear to config color
         int mode = config->main.Mode;
 
-        std::array<float, 4> color = config->decoration.BackgroundColor;
+        std::array<float, 4> color = config->main.BackgroundColor;
         window.clear(sf::Color(color[0], color[1], color[2], color[3]));
         switch (mode) {
         case 1:
             drawing->Draw(window);
             break;
         case 2:
+            kevinMode->Draw(window);
+            break;
+        case 3:
             osu->Draw(window);
             break;
-        //case 2:
-        //    taiko::draw();
-        //    break;
-        //case 3:
-        //    ctb::draw();
-        //    break;
-        //case 4:
-        //    mania::draw();
-        //    break;
-        //case 5:
-        //    custom::draw();
         }
 
         //show input panel

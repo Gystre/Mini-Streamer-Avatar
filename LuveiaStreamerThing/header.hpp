@@ -17,5 +17,5 @@
 #include <assert.h>
 
 #define WINDOW_WIDTH 612
-#define WINDOW_HEIGHT 352
+#define WINDOW_HEIGHT 383
 #define MAX_FRAMERATE 60

@@ -63,12 +63,12 @@ Input::Input()
     INPUT_KEY_TABLE[189] = (int)sf::Keyboard::Key::Dash;
 
     //read config values
-    isLetterbox = config->resolution.LetterBoxing;
-    osu_x = config->resolution.OsuWidth;
-    osu_y = config->resolution.OsuHeight;
-    osu_h = config->resolution.HorizontalPosition;
-    osu_v = config->resolution.VerticalPosition;
-    isLeftHanded = config->decoration.LeftHanded;
+    isLetterbox = config->osu.LetterBoxing;
+    osu_x = config->osu.OsuWidth;
+    osu_y = config->osu.OsuHeight;
+    osu_h = config->osu.HorizontalPosition;
+    osu_v = config->osu.VerticalPosition;
+    isLeftHanded = config->osu.LeftHanded;
 
     // getting resolution
     RECT desktop;
